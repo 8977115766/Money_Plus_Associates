@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.title }} Hub | Money Plus Associates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand" href="/"><span class="brand-main">MONEY PLUS ASSOCIATES</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="/loans">Back to Loans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/benefits">Client Benefits</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white border-bottom py-5 mb-5 shadow-sm">
+        <div class="container">
+            <div class="d-flex align-items-center gap-4">
+                <div class="card-icon-wrap m-0" style="width:80px; height:80px; font-size:2.2rem; display: flex; align-items: center; justify-content: center; background: rgba(30, 62, 98, 0.1); color: #1E3E62; border-radius: 50%;">
+                    <i class="fas {{ product.icon }}"></i>
+                </div>
+                <div>
+                    <h1 class="fw-bold m-0 text-dark" id="loanTitle">{{ product.title }}</h1>
+                    <p class="lead text-muted m-0 mt-1">{{ product.tagline }}</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container my-5">
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <div class="p-4 rounded-4 shadow-sm bg-white border border-top-0" style="border-top: 5px solid #F1C40F !important; border-radius: 12px;">
+                    <h3 class="fw-bold mb-2 text-dark">Apply Online For Instant Processing</h3>
+                    <p class="text-muted small mb-4">Your request parameters will instantly format into our WhatsApp dispatch platform for verification.</p>
+                    
+                    <form id="whatsappLoanForm">
+                        <h5 class="fw-bold border-bottom pb-2 text-secondary mb-3"><i class="fas fa-calculator me-2"></i>Loan Requirements</h5>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-muted">Requested Amount *</label>
+                                <input type="text" id="loanAmount" class="form-control" placeholder="e.g. ₹5,00,000" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-muted">Monthly Revenue / Income *</label>
+                                <input type="text" id="clientIncome" class="form-control" placeholder="e.g. ₹45,000" required>
+                            </div>
+                        </div>
+
+                        <h5 class="fw-bold border-bottom pb-2 text-secondary mb-3"><i class="fas fa-id-card me-2"></i>Personal Verification Data</h5>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-muted">Full Name [As on PAN Card] *</label>
+                                <input type="text" id="clientName" class="form-control" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-muted">Email Address *</label>
+                                <input type="email" id="clientEmail" class="form-control" placeholder="john.doe@example.com" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-muted">Mobile Phone Number *</label>
+                                <input type="tel" id="clientPhone" class="form-control" placeholder="+91 XXXXX XXXXX" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label small fw-semibold text-muted">Permanent Address *</label>
+                                <input type="text" id="clientAddress" class="form-control" placeholder="City, Landmark" required>
+                            </div>
+                        </div>
+
+                        <div class="form-check mb-4 small text-muted">
+                            <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                I confirm these parameters are accurate and wish to pass them to Money Plus Desk over WhatsApp secure routing.
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn w-100 py-3 text-uppercase fw-bold text-white" style="background: #25D366; border: none; border-radius: 30px; letter-spacing: 0.5px;">
+                            <i class="fab fa-whatsapp me-2 fs-5"></i> Submit via WhatsApp Chat
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card shadow-sm border-0 p-4 mb-4 bg-light" style="border-radius: 12px;">
+                    <h4 class="fw-bold mb-3 text-dark">Product Benchmarks</h4>
+                    <table class="table table-sm table-borderless m-0 bg-transparent">
+                        <tr class="border-bottom"><td class="py-2 text-muted small bg-transparent">Pricing Matrix:</td><td class="py-2 fw-bold text-success text-end bg-transparent">{{ product.interest_rate }}</td></tr>
+                        <tr class="border-bottom"><td class="py-2 text-muted small bg-transparent">Max Allocations:</td><td class="py-2 fw-bold text-dark text-end bg-transparent">{{ product.max_limit }}</td></tr>
+                        <tr class="border-bottom"><td class="py-2 text-muted small bg-transparent">Target Tenure:</td><td class="py-2 fw-bold text-dark text-end bg-transparent">{{ product.max_tenure }}</td></tr>
+                        <tr class="border-bottom"><td class="py-2 text-muted small bg-transparent">Minimum CIBIL:</td><td class="py-2 fw-bold text-warning text-end bg-transparent">{{ product.min_cibil }}</td></tr>
+                        <tr><td class="py-2 text-muted small bg-transparent">Age Range Window:</td><td class="py-2 fw-bold text-dark text-end bg-transparent">{{ product.age_limit }}</td></tr>
+                    </table>
+                </div>
+
+                <div class="mb-4">
+                    <h4 class="fw-bold text-dark mb-3"><i class="fas fa-shield-halved text-warning me-2"></i>Legal Eligibility Criteria</h4>
+                    <ul class="list-unstyled">
+                        {% for note in product.eligibility_notes %}
+                        <li class="d-flex align-items-start mb-2 small text-muted">
+                            <i class="fas fa-circle-check text-success me-2 mt-1"></i>
+                            <span>{{ note }}</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="fw-bold text-dark mb-3"><i class="fas fa-file-invoice-dollar text-warning me-2"></i>Required Documents List</h4>
+                    <div class="p-3 border rounded bg-white shadow-sm" style="border-radius: 12px;">
+                        {% for doc in product.documents %}
+                        <div class="d-flex align-items-center gap-3 p-2 border-bottom {% if loop.last %}border-0{% endif %}">
+                            <div class="bg-light text-center rounded-circle" style="width:35px; height:35px; line-height:35px; font-size: 0.85rem; display: flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-file-pdf text-danger"></i>
+                            </div>
+                            <span class="small text-dark fw-medium">{{ doc }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-premium text-center py-4 bg-dark text-white">
+        <p class="m-0 small opacity-75">&copy; 2026 Money Plus Associates. Secure Financial Intermediation Engine.</p>
+    </footer>
+
+    <script>
+        document.getElementById('whatsappLoanForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent standard page reloads
+
+            // 1. Enter your target Corporate WhatsApp Business Number here (Include Country Code, without symbols)
+            // Example: "919876543210" for an Indian number (+91)
+            const targetWhatsAppNumber = "919876543210"; 
+
+            // 2. Extract client parameter field data structures
+            const loanType = document.getElementById('loanTitle').innerText;
+            const clientName = document.getElementById('clientName').value;
+            const loanAmount = document.getElementById('loanAmount').value;
+            const clientIncome = document.getElementById('clientIncome').value;
+            const clientEmail = document.getElementById('clientEmail').value;
+            const clientPhone = document.getElementById('clientPhone').value;
+            const clientAddress = document.getElementById('clientAddress').value;
+
+            // 3. Construct a professional message template
+            const messageText = 
+                `*🏛️ NEW LOAN APPLICATION - MONEY PLUS*\n\n` +
+                `• *Product Class:* ${loanType}\n` +
+                `• *Applicant Name:* ${clientName}\n` +
+                `• *Requested Limit:* ${loanAmount}\n` +
+                `• *Declared Income:* ${clientIncome}\n\n` +
+                `*📞 CONTACT INFO VERIFICATION:*\n` +
+                `• *Phone Link:* ${clientPhone}\n` +
+                `• *Email ID:* ${clientEmail}\n` +
+                `• *Location:* ${clientAddress}\n\n` +
+                `_Sent via Money Plus Online Lead Portal Hub._`;
+
+            // 4. Encode text format safely to URI parameters
+            const encodedMessage = encodeURIComponent(messageText);
+
+            // 5. Generate deep-link URL (Works seamlessly on desktop browsers and mobile native applications)
+            const whatsappBaseUrl = `https://api.whatsapp.com/send?phone=${targetWhatsAppNumber}&text=${encodedMessage}`;
+
+            // 6. Redirect the web browser instance directly into WhatsApp
+            window.open(whatsappBaseUrl, '_blank');
+        });
+    </script>
+
+</body>
+</html>
