@@ -18,6 +18,16 @@ body {
     color: var(--text-dark);
 }
 
+.brand-logo{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    border-radius:50%;
+    background:white;
+    padding:4px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.15);
+}
+
 /* TOP TICKER BAR */
 .mission-bar {
     background: linear-gradient(90deg, var(--primary-deep), var(--secondary-blue));
