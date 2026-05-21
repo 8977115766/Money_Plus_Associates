@@ -131,15 +131,27 @@ def submit_lead():
 
     try:
 
+        # FORM DATA
         name = request.form.get('name')
         phone = request.form.get('phone')
 
+        print("NAME:", name)
+        print("PHONE:", phone)
+
+        # EMAIL CONFIG
         sender_email = "dmemoneyplus@gmail.com"
 
         app_password = os.environ.get("EMAIL_PASSWORD")
 
+        print("APP PASSWORD:", app_password)
+
         receiver_email = "dmemoneyplus@gmail.com"
 
+        # CHECK ENV VARIABLE
+        if not app_password:
+            return "EMAIL_PASSWORD environment variable missing in Render"
+
+        # EMAIL CONTENT
         subject = "New Loan Lead - Money Plus"
 
         body = f"""
@@ -150,18 +162,23 @@ Name: {name}
 Phone: {phone}
 """
 
+        # MIME MESSAGE
         msg = MIMEText(body)
 
         msg['Subject'] = subject
         msg['From'] = sender_email
         msg['To'] = receiver_email
 
+        # SMTP CONNECTION
         server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
 
+        # LOGIN
         server.login(sender_email, app_password)
 
+        # SEND
         server.send_message(msg)
 
+        # CLOSE
         server.quit()
 
         return """
@@ -177,7 +194,6 @@ Phone: {phone}
         <h1>Email Error</h1>
         <pre>{str(e)}</pre>
         """
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
