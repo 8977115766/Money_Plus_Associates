@@ -85,7 +85,7 @@ body {
     font-weight: 600;
     letter-spacing: 1px;
 }
-
+/* LEAD FORM CARDS */
 .lead-form-card{
     background: rgba(255,255,255,0.95);
     padding: 35px;
@@ -99,9 +99,7 @@ body {
 
     transition: all 0.4s ease;
 }
-.lead-form-card h3{
-    color:#0b1f3a;
-}
+
 .lead-form-card.active{
     opacity: 1;
     transform: translateY(0);
@@ -120,7 +118,6 @@ body {
     box-shadow: none;
     border-color: #f4c400;
 }
-
 /* PREMIUM FINANCIAL CARDS */
 .financial-card {
     background: #ffffff;
