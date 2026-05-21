@@ -133,14 +133,11 @@ def submit_lead():
     name = request.form.get('name')
     phone = request.form.get('phone')
 
-    # Your Gmail
-    sender_email = "yourgmail@gmail.com"
+    sender_email = "YOURGMAIL@gmail.com"
 
-    # Gmail App Password
-    app_password = "yourapppassword"
+    app_password = "YOUR_APP_PASSWORD"
 
-    # Receiver Email
-    receiver_email = "yourgmail@gmail.com"
+    receiver_email = "YOURGMAIL@gmail.com"
 
     subject = "New Loan Lead - Money Plus"
 
@@ -149,29 +146,38 @@ New Customer Lead
 
 Name: {name}
 
-Mobile Number: {phone}
+Phone: {phone}
 """
 
     msg = MIMEText(body)
+
     msg['Subject'] = subject
     msg['From'] = sender_email
     msg['To'] = receiver_email
 
     try:
+
         server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+
         server.login(sender_email, app_password)
+
         server.send_message(msg)
+
         server.quit()
 
         return """
         <script>
-        alert('Submitted Successfully! Our executive will contact you shortly.');
+        alert('Submitted Successfully!');
         window.location.href='/';
         </script>
         """
 
     except Exception as e:
-        return f"Error: {e}"
+
+        return f"""
+        <h2>Email Error</h2>
+        <p>{e}</p>
+        """
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
