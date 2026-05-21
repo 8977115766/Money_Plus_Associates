@@ -172,8 +172,8 @@ Phone: {phone}
         </script>
         """
 
-    except Exception as e:
-    return str(e)
+    except Exception as e: return f""" <h2>Email Error</h2> <p>{e}</p> """
+        
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
