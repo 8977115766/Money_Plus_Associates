@@ -1,4 +1,6 @@
-from flask import Flask, render_template, abort
+from flask import Flask, render_template, abort, request
+import smtplib
+from email.mime.text import MIMEText
 import os
 app = Flask(__name__)
 
@@ -124,6 +126,51 @@ def benefits():
 @app.route('/history')
 def history():
     return render_template('history.html')
+@app.route('/submit-lead', methods=['POST'])
+def submit_lead():
+
+    name = request.form.get('name')
+    phone = request.form.get('phone')
+
+    # Your Gmail
+    sender_email = "yourgmail@gmail.com"
+
+    # Gmail App Password
+    app_password = "yourapppassword"
+
+    # Receiver Email
+    receiver_email = "yourgmail@gmail.com"
+
+    subject = "New Loan Lead - Money Plus"
+
+    body = f"""
+New Customer Lead
+
+Name: {name}
+
+Mobile Number: {phone}
+"""
+
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+
+    try:
+        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        server.login(sender_email, app_password)
+        server.send_message(msg)
+        server.quit()
+
+        return """
+        <script>
+        alert('Submitted Successfully! Our executive will contact you shortly.');
+        window.location.href='/';
+        </script>
+        """
+
+    except Exception as e:
+        return f"Error: {e}"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
