@@ -1,9 +1,7 @@
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, abort, request, redirect, quote_plus
 import os
-import requests
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "money_plus_secure_key_2026")
 
 # Structured database matching Indian NBFC guidelines
 LOAN_PRODUCTS = {
@@ -130,53 +128,31 @@ def history():
 
 @app.route('/submit-lead', methods=['POST'])
 def submit_lead():
-    try:
-        name = str(request.form.get('name', '')).strip()
-        phone = str(request.form.get('phone', '')).strip()
+    # 1. Capture Form Inputs safely
+    name = request.form.get('name', '').strip()
+    phone = request.form.get('phone', '').strip()
 
-        target_email = "dmemoneyplus@gmail.com"
+    # 2. YOUR BUSINESS WHATSAPP NUMBER (Replace with your actual mobile number including country code)
+    # Example: "919876543210" (91 is India code, followed by 10 digits)
+    your_whatsapp_number = "918121665425" 
 
-        payload = {
-            "name": name,
-            "phone": phone,
-            "_subject": "🔥 New Lead Allocation Alert - Money Plus Associates",
-            "_honey": ""
-        }
+    # 3. Create the text message template
+    raw_message = (
+        f"Hello Money Plus Associates,\n\n"
+        f"I want to request a loan callback profile.\n\n"
+        f"📝 *Lead Details:*\n"
+        f"• Name: {name}\n"
+        f"• Mobile Number: {phone}\n\n"
+        f"Please verify my data allocations. Thank you!"
+    )
 
-        headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Content-Type": "application/x-www-form-urlencoded"
-        }
+    # 4. Safely URL-encode the text parameters
+    encoded_message = quote_plus(raw_message)
 
-        # Route standard Form Post request
-        requests.post(
-            f"https://formsubmit.co/{target_email}", 
-            data=payload, 
-            headers=headers,
-            timeout=15
-        )
-
-        return """
-        <script>
-            alert('Lead Data Registered Successfully! Our Executive will connect with you.');
-            window.location.href = '/';
-        </script>
-        """
-
-    except Exception as e:
-        return f"""
-        <html>
-        <body style="font-family: sans-serif; padding: 30px; text-align: center; background: #fafafa;">
-            <div style="max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
-                <h2 style="color: #e53e3e;">Submission Route Alert</h2>
-                <p>Lead data tracking failed to process over external cloud relays.</p>
-                <code style="display:block; background:#f7fafc; padding:10px; border:1px solid #e2e8f0;">{str(e)}</code>
-                <br>
-                <a href="/" style="background:#4a5568; color:white; padding:10px 20px; text-decoration:none; border-radius:5px;">Return Home</a>
-            </div>
-        </body>
-        </html>
-        """, 500
+    # 5. Redirect browser directly to WhatsApp API link
+    whatsapp_url = f"https://api.whatsapp.com/send?phone={your_whatsapp_number}&text={encoded_message}"
+    
+    return redirect(whatsapp_url)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
