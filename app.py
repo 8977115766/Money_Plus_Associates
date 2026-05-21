@@ -133,8 +133,8 @@ def submit_lead():
     phone = request.form.get('phone', '').strip()
 
     # 2. YOUR BUSINESS WHATSAPP NUMBER (Replace with your actual mobile number including country code)
-    # Example: "919876543210" (91 is India code, followed by 10 digits)
-    your_whatsapp_number = "918121665425" 
+    # Example: "919182812046" (91 is India code, followed by 10 digits)
+    your_whatsapp_number = "919182812046" 
 
     # 3. Create the text message template
     raw_message = (
