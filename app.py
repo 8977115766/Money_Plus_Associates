@@ -158,12 +158,16 @@ def submit_lead():
         msg['From'] = sender_email
         msg['To'] = receiver_email
 
-        # SMTP CONNECTION (Using Context Manager ensures connection closes even on unexpected script breaks)
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
-            server.login(sender_email, app_password)
-            server.send_message(msg)
+        # CLOUD-OPTIMIZED SMTP ROUTING (Using TLS over Port 587)
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.ehlo()
+        server.starttls()  # Upgrades the connection to secure TLS
+        server.ehlo()
+        server.login(sender_email, app_password)
+        server.send_message(msg)
+        server.quit()
 
-        # Success handling via clean script injector or simple redirect response
+        # Success handling via clean script injector
         return """
         <script>
             alert('Lead Submitted Successfully!');
@@ -172,6 +176,7 @@ def submit_lead():
         """
 
     except Exception as e:
+        # This will now display the exact error on your screen if anything else fails
         return f"""
         <h1>Email Delivery System Error</h1>
         <p>Something went wrong while executing SMTP routing.</p>
