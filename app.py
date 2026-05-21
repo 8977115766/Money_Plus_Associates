@@ -1,4 +1,5 @@
-from flask import Flask, render_template, abort, request, os
+from flask import Flask, render_template, abort, request
+import os
 import requests
 
 app = Flask(__name__)
@@ -133,32 +134,28 @@ def submit_lead():
         name = str(request.form.get('name', '')).strip()
         phone = str(request.form.get('phone', '')).strip()
 
-        # Target Email Destination
         target_email = "dmemoneyplus@gmail.com"
 
-        # Construct payload for the delivery API
         payload = {
             "name": name,
             "phone": phone,
             "_subject": "🔥 New Lead Allocation Alert - Money Plus Associates",
-            "_honey": "" # Anti-spam honeypot field
+            "_honey": ""
         }
 
-        # Add explicit User-Agent headers so the server treats it like a trusted web browser request
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
             "Content-Type": "application/x-www-form-urlencoded"
         }
 
         # Route standard Form Post request
-        response = requests.post(
+        requests.post(
             f"https://formsubmit.co/{target_email}", 
             data=payload, 
             headers=headers,
             timeout=15
         )
 
-        # FormSubmit redirects on success or returns a normal response block
         return """
         <script>
             alert('Lead Data Registered Successfully! Our Executive will connect with you.');
