@@ -135,7 +135,7 @@ def submit_lead():
 
     sender_email = "dmemoneyplus@gmail.com"
 
-    app_password = "poli fapb yrgp llzo"
+    app_password = "polifapbyrgpllzo"
     receiver_email = "dmemoneyplus@gmail.com"
 
     subject = "New Loan Lead - Money Plus"
