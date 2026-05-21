@@ -1,8 +1,11 @@
-from flask import Flask, render_template, abort, request
+from flask import Flask, render_template, abort, request, redirect, url_for, flash
 import smtplib
 from email.mime.text import MIMEText
 import os
+
 app = Flask(__name__)
+# Added a secret key to support secure flash messaging/sessions if needed later
+app.secret_key = os.environ.get("SECRET_KEY", "money_plus_fallback_secret_key")
 
 # Structured database matching Indian NBFC guidelines
 LOAN_PRODUCTS = {
@@ -25,7 +28,7 @@ LOAN_PRODUCTS = {
         ],
         'documents': [
             'PAN Card (Mandatory identity registration link)',
-            'Identity/Address verification documentation (e.g., Aadhaar Card/Passport)',
+            'Identity/Address verification documentation (e.g., Passport)',
             'Salary Slips for the last 3 months to verify income stability',
             'Bank account statement for the past 6 months showing salary credits'
         ]
@@ -126,74 +129,55 @@ def benefits():
 @app.route('/history')
 def history():
     return render_template('history.html')
+
 @app.route('/submit-lead', methods=['POST'])
 def submit_lead():
-
     try:
-
         # FORM DATA
         name = request.form.get('name')
         phone = request.form.get('phone')
 
-        print("NAME:", name)
-        print("PHONE:", phone)
+        print(f"Form submission received - Name: {name}, Phone: {phone}")
 
         # EMAIL CONFIG
         sender_email = "dmemoneyplus@gmail.com"
-
-        app_password = os.environ.get("EMAIL_PASSWORD")
-
-        print("APP PASSWORD:", app_password)
-
         receiver_email = "dmemoneyplus@gmail.com"
+        app_password = os.environ.get("EMAIL_PASSWORD")
 
         # CHECK ENV VARIABLE
         if not app_password:
-            return "EMAIL_PASSWORD environment variable missing in Render"
+            return "<h1>Configuration Error</h1><p>EMAIL_PASSWORD environment variable missing in Render dashboard.</p>", 500
 
         # EMAIL CONTENT
         subject = "New Loan Lead - Money Plus"
-
-        body = f"""
-New Customer Lead
-
-Name: {name}
-
-Phone: {phone}
-"""
+        body = f"New Customer Lead\n\nName: {name}\nPhone: {phone}"
 
         # MIME MESSAGE
         msg = MIMEText(body)
-
         msg['Subject'] = subject
         msg['From'] = sender_email
         msg['To'] = receiver_email
 
-        # SMTP CONNECTION
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        # SMTP CONNECTION (Using Context Manager ensures connection closes even on unexpected script breaks)
+        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as server:
+            server.login(sender_email, app_password)
+            server.send_message(msg)
 
-        # LOGIN
-        server.login(sender_email, app_password)
-
-        # SEND
-        server.send_message(msg)
-
-        # CLOSE
-        server.quit()
-
+        # Success handling via clean script injector or simple redirect response
         return """
         <script>
-        alert('Submitted Successfully!');
-        window.location.href='/';
+            alert('Lead Submitted Successfully!');
+            window.location.href = '/';
         </script>
         """
 
     except Exception as e:
-
         return f"""
-        <h1>Email Error</h1>
+        <h1>Email Delivery System Error</h1>
+        <p>Something went wrong while executing SMTP routing.</p>
         <pre>{str(e)}</pre>
-        """
+        """, 500
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
