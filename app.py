@@ -1,7 +1,7 @@
 from flask import Flask, render_template, abort, request
 import smtplib
 from email.mime.text import MIMEText
-import webbrowser
+
 import os
 app = Flask(__name__)
 
@@ -135,8 +135,7 @@ def submit_lead():
 
     sender_email = "dmemoneyplus@gmail.com"
 
-    app_password = "wffwuxonslsefvix"
-
+    app_password = "poli fapb yrgp llzo"
     receiver_email = "dmemoneyplus@gmail.com"
 
     subject = "New Loan Lead - Money Plus"
