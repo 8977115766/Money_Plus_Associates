@@ -93,31 +93,30 @@
                         Our executive will contact you shortly
                     </p>
 
-                    <form id="leadForm">
+                    <form id="leadForm" method="POST" action="/submit-lead">
 
-                        <div class="mb-3">
-                            <input type="text"
-                                   class="form-control lead-input"
-                                   id="customerName"
-                                   placeholder="Enter Full Name"
-                                   required>
-                        </div>
+    <div class="mb-3">
+        <input type="text"
+               class="form-control lead-input"
+               name="name"
+               placeholder="Enter Full Name"
+               required>
+    </div>
 
-                        <div class="mb-3">
-                            <input type="tel"
-                                   class="form-control lead-input"
-                                   id="customerPhone"
-                                   placeholder="Enter Mobile Number"
-                                   required>
-                        </div>
+    <div class="mb-3">
+        <input type="tel"
+               class="form-control lead-input"
+               name="phone"
+               placeholder="Enter Mobile Number"
+               required>
+    </div>
 
-                        <button type="submit"
-                                class="btn btn-premium w-100">
-                            Request Callback
-                        </button>
+    <button type="submit"
+            class="btn btn-premium w-100">
+        Request Callback
+    </button>
 
-                    </form>
-
+</form>
                     <div class="text-center mt-3 small text-muted">
                         ✔ Secure • ✔ Trusted • ✔ Fast Response
                     </div>
