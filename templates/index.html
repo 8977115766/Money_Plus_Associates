@@ -251,41 +251,6 @@ function showLeadForm() {
 
 }
 
-document.getElementById("leadForm").addEventListener("submit", function(e){
-
-    e.preventDefault();
-
-    let name =
-        document.querySelector('input[name="name"]').value;
-
-    let phone =
-        document.querySelector('input[name="phone"]').value;
-
-    if(name === "" || phone === ""){
-
-        alert("Please fill all details");
-        return;
-
-    }
-
-    let whatsappMessage =
-`Hello Money Plus Associates,
-
-New Loan Lead Received
-
-Customer Name: ${name}
-Mobile Number: ${phone}`;
-
-    let whatsappURL =
-`https://wa.me/91YOURWHATSAPPNUMBER?text=${encodeURIComponent(whatsappMessage)}`;
-
-    window.open(whatsappURL, "_blank");
-
-    alert("Lead Submitted Successfully!");
-
-    document.getElementById("leadForm").reset();
-
-});
 </script>
     
 </body>
