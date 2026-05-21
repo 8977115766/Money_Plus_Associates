@@ -130,59 +130,50 @@ def benefits():
 def history():
     return render_template('history.html')
 
+import requests  # Make sure to add this import statement at the very top of app.py
+
 @app.route('/submit-lead', methods=['POST'])
 def submit_lead():
     try:
         # FORM DATA
-        name = request.form.get('name')
-        phone = request.form.get('phone')
+        name = str(request.form.get('name', ''))
+        phone = str(request.form.get('phone', ''))
 
         print(f"Form submission received - Name: {name}, Phone: {phone}")
 
-        # EMAIL CONFIG
-        sender_email = "dmemoneyplus@gmail.com"
-        receiver_email = "dmemoneyplus@gmail.com"
-        app_password = os.environ.get("EMAIL_PASSWORD")
+        # CLOUD-COMPATIBLE SECURE WEB API DELIVERY
+        # We route through a lightweight, secure public form relay service 
+        # to bypass Render's strict raw SMTP TCP port restrictions.
+        payload = {
+            "name": name,
+            "phone": phone,
+            "_to": "dmemoneyplus@gmail.com",  # Where the lead will be delivered
+            "_subject": "New Loan Lead - Money Plus"
+        }
 
-        # CHECK ENV VARIABLE
-        if not app_password:
-            return "<h1>Configuration Error</h1><p>EMAIL_PASSWORD environment variable missing in Render dashboard.</p>", 500
+        # Sending via a standard HTTP Post web protocol (Never blocked by Render)
+        response = requests.post("https://formsubmit.co/ajax/dmemoneyplus@gmail.com", json=payload, timeout=10)
 
-        # EMAIL CONTENT
-        subject = "New Loan Lead - Money Plus"
-        body = f"New Customer Lead\n\nName: {name}\nPhone: {phone}"
-
-        # MIME MESSAGE
-        msg = MIMEText(body)
-        msg['Subject'] = subject
-        msg['From'] = sender_email
-        msg['To'] = receiver_email
-
-        # CLOUD-OPTIMIZED SMTP ROUTING (Using TLS over Port 587)
-        server = smtplib.SMTP('smtp.gmail.com', 587)
-        server.ehlo()
-        server.starttls()  # Upgrades the connection to secure TLS
-        server.ehlo()
-        server.login(sender_email, app_password)
-        server.send_message(msg)
-        server.quit()
-
-        # Success handling via clean script injector
-        return """
-        <script>
-            alert('Lead Submitted Successfully!');
-            window.location.href = '/';
-        </script>
-        """
+        if response.status_code == 200:
+            return """
+            <script>
+                alert('Lead Submitted Successfully!');
+                window.location.href = '/';
+            </script>
+            """
+        else:
+            raise Exception(f"Relay service returned non-200 status: {response.status_code}")
 
     except Exception as e:
-        # This will now display the exact error on your screen if anything else fails
         return f"""
-        <h1>Email Delivery System Error</h1>
-        <p>Something went wrong while executing SMTP routing.</p>
-        <pre>{str(e)}</pre>
+        <html>
+        <body style="font-family: sans-serif; padding: 20px; background: #fff5f5;">
+            <h1 style="color: #c53030;">API Email Delivery Exception Caught</h1>
+            <p><strong>Error Details:</strong> {str(e)}</p>
+            <p>Please check your internet network configurations or route logs.</p>
+        </body>
+        </html>
         """, 500
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
