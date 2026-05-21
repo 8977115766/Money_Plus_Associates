@@ -1,5 +1,6 @@
-from flask import Flask, render_template, abort, request, redirect, quote_plus
+from flask import Flask, render_template, abort, request, redirect
 import os
+import urllib.parse  # Correct library to handle the message spacing
 
 app = Flask(__name__)
 
@@ -132,11 +133,10 @@ def submit_lead():
     name = request.form.get('name', '').strip()
     phone = request.form.get('phone', '').strip()
 
-    # 2. YOUR BUSINESS WHATSAPP NUMBER (Replace with your actual mobile number including country code)
-    # Example: "919182812046" (91 is India code, followed by 10 digits)
-    your_whatsapp_number = "919182812046" 
+    # 2. Business WhatsApp Configuration
+    your_whatsapp_number = "918121665425" 
 
-    # 3. Create the text message template
+    # 3. Message Formatting
     raw_message = (
         f"Hello Money Plus Associates,\n\n"
         f"I want to request a loan callback profile.\n\n"
@@ -146,8 +146,8 @@ def submit_lead():
         f"Please verify my data allocations. Thank you!"
     )
 
-    # 4. Safely URL-encode the text parameters
-    encoded_message = quote_plus(raw_message)
+    # 4. Correctly reference the url processing module
+    encoded_message = urllib.parse.quote_plus(raw_message)
 
     # 5. Redirect browser directly to WhatsApp API link
     whatsapp_url = f"https://api.whatsapp.com/send?phone={your_whatsapp_number}&text={encoded_message}"
