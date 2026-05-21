@@ -133,11 +133,11 @@ def submit_lead():
     name = request.form.get('name')
     phone = request.form.get('phone')
 
-    sender_email = "YOURGMAIL@gmail.com"
+    sender_email = "moneyplusrjy1988@gmail.com"
 
     app_password = "YOUR_APP_PASSWORD"
 
-    receiver_email = "YOURGMAIL@gmail.com"
+    receiver_email = "moneyplusrjy1988@gmail.com"
 
     subject = "New Loan Lead - Money Plus"
 
