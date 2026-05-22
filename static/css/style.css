@@ -327,3 +327,35 @@ body {
         text-align: center;
     }
 }
+
+
+.premium-badge{
+    background: rgba(241,196,15,0.15);
+    color: #b88900;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+}
+
+.lead-title{
+    color: #0B192C;
+}
+
+.lead-subtext{
+    color: #6c757d;
+    font-size: 15px;
+}
+
+.form-embed-wrapper{
+    overflow: hidden;
+    border-radius: 18px;
+    background: #fff;
+}
+
+.form-embed-wrapper iframe{
+    border: none;
+    display: block;
+}
