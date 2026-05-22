@@ -134,12 +134,12 @@ def submit_lead():
     phone = request.form.get('phone', '').strip()
 
     # 2. Business WhatsApp Configuration
-    your_whatsapp_number = "918121665425" 
+    your_whatsapp_number = "919999999999" 
 
     # 3. Message Formatting
     raw_message = (
         f"Hello Money Plus Associates,\n\n"
-        f"I want to request a loan callback profile.\n\n"
+        f"I want a loan callback profile.\n\n"
         f"📝 *Lead Details:*\n"
         f"• Name: {name}\n"
         f"• Mobile Number: {phone}\n\n"
