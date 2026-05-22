@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, 
+from flask import Flask, render_template, abort
 import os
 import urllib.parse  # Correct library to handle the message spacing
 
