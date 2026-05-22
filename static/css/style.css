@@ -361,22 +361,67 @@ body {
 }
 
 /* ==========================================
-    background: #f8f9fa;
+   CONTACT PAGE PREMIUM DESIGN
+========================================== */
+
+.contact-small-text{
+    color: #6c757d;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.social-contact-box{
+    border-top: 1px solid #e9ecef;
+    padding-top: 25px;
+}
+
+.social-btn{
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover{
+    transform: translateY(-5px) scale(1.05);
+    color: white;
+}
+
+.instagram-btn{
+    background: linear-gradient(45deg,#f09433,#dc2743,#cc2366,#bc1888);
+}
+
+.facebook-btn{
+    background: #1877f2;
+}
+
+.whatsapp-btn{
+    background: #25d366;
 }
 
 .contact-info-card,
 .contact-form-card{
-    background: white;
-    padding: 40px;
+    background: #ffffff;
     border-radius: 24px;
+    padding: 40px;
     box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+
+.contact-form-card iframe{
+    border-radius: 16px;
 }
 
 .contact-info-item{
     display: flex;
     gap: 20px;
-    align-items: flex-start;
     margin-bottom: 30px;
+    align-items: flex-start;
 }
 
 .contact-icon{
@@ -392,32 +437,11 @@ body {
     flex-shrink: 0;
 }
 
-.contact-info-item h6{
-    font-weight: 600;
-    margin-bottom: 5px;
-}
-
-.contact-info-item p{
-    color: #6c757d;
-    margin-bottom: 0;
-}
-
-.contact-title{
-    color: #0B192C;
-}
-
-.contact-subtext{
-    color: #6c757d;
-}
-
-@media (max-width: 768px){
-
-    .contact-hero-title{
-        font-size: 2rem;
-    }
+@media(max-width:768px){
 
     .contact-info-card,
     .contact-form-card{
         padding: 25px;
     }
+
 }
