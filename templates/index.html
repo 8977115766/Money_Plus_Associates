@@ -203,7 +203,17 @@
             formBox.scrollIntoView({
                 behavior: "smooth"
             });
-            formBox.classList.add("active");
+            <script>
+function showLeadForm() {
+    const formBox = document.getElementById("leadFormBox");
+
+    if(formBox){
+        formBox.scrollIntoView({
+            behavior: "smooth"
+        });
+    }
+}
+</script>
         }
     }
     </script>    
