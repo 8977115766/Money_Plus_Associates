@@ -126,7 +126,9 @@ def benefits():
 @app.route('/history')
 def history():
     return render_template('history.html')
-
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 
 if __name__ == "__main__":
