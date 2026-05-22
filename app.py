@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect
+from flask import Flask, render_template, abort, 
 import os
 import urllib.parse  # Correct library to handle the message spacing
 
@@ -127,32 +127,7 @@ def benefits():
 def history():
     return render_template('history.html')
 
-@app.route('/submit-lead', methods=['POST'])
-def submit_lead():
-    # 1. Capture Form Inputs safely
-    name = request.form.get('name', '').strip()
-    phone = request.form.get('phone', '').strip()
 
-    # 2. Business WhatsApp Configuration
-    your_whatsapp_number = "919999999999" 
-
-    # 3. Message Formatting
-    raw_message = (
-        f"Hello Money Plus Associates,\n\n"
-        f"I want a loan callback profile.\n\n"
-        f"📝 *Lead Details:*\n"
-        f"• Name: {name}\n"
-        f"• Mobile Number: {phone}\n\n"
-        f"Please verify my data allocations. Thank you!"
-    )
-
-    # 4. Correctly reference the url processing module
-    encoded_message = urllib.parse.quote_plus(raw_message)
-
-    # 5. Redirect browser directly to WhatsApp API link
-    whatsapp_url = f"https://api.whatsapp.com/send?phone={your_whatsapp_number}&text={encoded_message}"
-    
-    return redirect(whatsapp_url)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
