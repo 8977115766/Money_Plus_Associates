@@ -151,43 +151,38 @@
 
     <script>
         document.getElementById('whatsappLoanForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent standard page reloads
 
-            // 1. Enter your target Corporate WhatsApp Business Number here (Include Country Code, without symbols)
-            // Example: "919876543210" for an Indian number (+91)
-            const targetWhatsAppNumber = "919182812046"; 
+    event.preventDefault();
 
-            // 2. Extract client parameter field data structures
-            const loanType = document.getElementById('loanTitle').innerText;
-            const clientName = document.getElementById('clientName').value;
-            const loanAmount = document.getElementById('loanAmount').value;
-            const clientIncome = document.getElementById('clientIncome').value;
-            const clientEmail = document.getElementById('clientEmail').value;
-            const clientPhone = document.getElementById('clientPhone').value;
-            const clientAddress = document.getElementById('clientAddress').value;
+    const targetWhatsAppNumber = "919182812046";
 
-            // 3. Construct a professional message template
-            const messageText = 
-                `*🏛️ NEW LOAN APPLICATION - MONEY PLUS*\n\n` +
-                `• *Product Class:* ${loanType}\n` +
-                `• *Applicant Name:* ${clientName}\n` +
-                `• *Requested Limit:* ${loanAmount}\n` +
-                `• *Declared Income:* ${clientIncome}\n\n` +
-                `*📞 CONTACT INFO VERIFICATION:*\n` +
-                `• *Phone Link:* ${clientPhone}\n` +
-                `• *Email ID:* ${clientEmail}\n` +
-                `• *Location:* ${clientAddress}\n\n` +
-                `_Sent via Money Plus Online Lead Portal Hub._`;
+    const loanType = document.getElementById('loanTitle').innerText;
+    const clientName = document.getElementById('clientName').value;
+    const loanAmount = document.getElementById('loanAmount').value;
+    const clientIncome = document.getElementById('clientIncome').value;
+    const clientEmail = document.getElementById('clientEmail').value;
+    const clientPhone = document.getElementById('clientPhone').value;
+    const clientAddress = document.getElementById('clientAddress').value;
 
-            // 4. Encode text format safely to URI parameters
-            const encodedMessage = encodeURIComponent(messageText);
+    const messageText =
+        `🏛️ NEW LOAN APPLICATION - MONEY PLUS\n\n` +
+        `Product: ${loanType}\n` +
+        `Name: ${clientName}\n` +
+        `Loan Amount: ${loanAmount}\n` +
+        `Income: ${clientIncome}\n\n` +
+        `Phone: ${clientPhone}\n` +
+        `Email: ${clientEmail}\n` +
+        `Address: ${clientAddress}`;
 
-            // 5. Generate deep-link URL (Works seamlessly on desktop browsers and mobile native applications)
-            const whatsappBaseUrl = `https://api.whatsapp.com/send?phone=${targetWhatsAppNumber}&text=${encodedMessage}`;
+    const encodedMessage = encodeURIComponent(messageText);
 
-            // 6. Redirect the web browser instance directly into WhatsApp
-            window.open(whatsappBaseUrl, '_blank');
-        });
+    const whatsappBaseUrl =
+        `https://wa.me/${targetWhatsAppNumber}?text=${encodedMessage}`;
+
+    console.log(whatsappBaseUrl);
+
+    window.open(whatsappBaseUrl, '_blank');
+});
     </script>
 
 </body>
