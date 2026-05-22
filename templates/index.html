@@ -54,7 +54,7 @@
 
                <div class="col-lg-5 mt-5 mt-lg-0">
 
-    <div class="lead-form-card active" id="leadFormBox">
+    <div class="lead-form-card " id="leadFormBox">
 
         <div class="text-center mb-4">
 
@@ -214,6 +214,10 @@ function showLeadForm() {
 
     if(formBox){
 
+        // SHOW FORM
+        formBox.classList.add("active");
+
+        // SCROLL TO FORM
         formBox.scrollIntoView({
             behavior: "smooth",
             block: "start"
