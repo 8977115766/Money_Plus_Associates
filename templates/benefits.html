@@ -49,10 +49,49 @@
         }
         
         .partner-section {
-            background: #f8f9fa;
-            border-radius: 16px;
-            padding: 50px 30px;
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 24px;
+            padding: 55px 35px;
+        
+            /* Highlight Border */
+            border: 2px solid rgba(241, 196, 15, 0.45);
+        
+            /* Premium Shadow */
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.06),
+                0 0 0 4px rgba(241, 196, 15, 0.08);
+        
+            position: relative;
+            overflow: hidden;
+        
+            transition: all 0.4s ease;
         }
+        .partner-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 2px;
+        
+            background: linear-gradient(
+                135deg,
+                #F1C40F,
+                #ffd700,
+                #ffffff,
+                #F1C40F
+            );
+        
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+        
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        
+            opacity: 0.8;
+            pointer-events: none;
+        }
+        
         .partner-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -71,6 +110,15 @@
             align-items: center;
             justify-content: center;
             min-height: 130px;
+        }
+        .partner-section:hover {
+            transform: translateY(-2px);
+        
+            box-shadow:
+                0 16px 40px rgba(0,0,0,0.08),
+                0 0 25px rgba(241, 196, 15, 0.25);
+        
+            border-color: #F1C40F;
         }
         .partner-card:hover {
             transform: translateY(-5px);
