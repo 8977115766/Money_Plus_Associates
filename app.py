@@ -7,15 +7,15 @@ app = Flask(__name__)
 # Structured database matching Indian NBFC guidelines
 LOAN_PRODUCTS = {
     'personal': {
-        'title': 'Premium Personal Loans',
+        'title': 'Personal Loans',
         'icon': 'fa-user-tie',
         'tagline': 'Fast, secured financing for your life milestones and immediate cash flows.',
         'min_salary': '₹35,000 / month (net)',
-        'min_cibil': '650+',
-        'age_limit': '21 - 58 Years',
-        'interest_rate': 'Starting at 9.99% p.a.',
-        'max_tenure': 'Up to 60 Months',
-        'max_limit': 'Up to ₹25 Lakhs',
+        'min_cibil': '675+',
+        'age_limit': '20 - 61 Years',
+        'interest_rate': 'Starting at 9.99% ',
+        'max_tenure': 'Up to 72 Months',
+        'max_limit': 'Up to ₹50 Lakhs',
         'processing_fee': '1.5% to 2.5% of loan amount',
         'eligibility_notes': [
             'Applicant must be an Indian Citizen with verified employment.',
@@ -31,15 +31,15 @@ LOAN_PRODUCTS = {
         ]
     },
     'business': {
-        'title': 'Strategic Business Capital',
+        'title': 'Business Loans',
         'icon': 'fa-chart-line',
         'tagline': 'Fuel operational scale, equipment purchase, or short-term working capital demands.',
         'min_salary': '₹5 Lakhs Annual Turn-over',
         'min_cibil': '700+ (Commercial/Company Score)',
         'age_limit': '25 - 65 Years',
-        'interest_rate': 'Starting at 13.0% p.a.',
-        'max_tenure': 'Up to 48 Months',
-        'max_limit': 'Up to ₹50 Lakhs (secured Collateral-Free)',
+        'interest_rate': 'Starting at 10.5% ',
+        'max_tenure': 'Up to 60 Months',
+        'max_limit': 'No-Limit',
         'processing_fee': '2.0% Flat Admin Surcharge',
         'eligibility_notes': [
             'Business entity must have an active operational history of at least 3 years.',
@@ -59,11 +59,11 @@ LOAN_PRODUCTS = {
         'icon': 'fa-user-graduate',
         'tagline': 'Funding academic futures across premier domestic and global institutions.',
         'min_salary': '₹25,000 / month (Co-borrower income)',
-        'min_cibil': '620+ (Evaluated via Primary Co-borrower)',
-        'age_limit': '18 - 35 Years (Student profile bracket)',
-        'interest_rate': 'Starting at 8.75% p.a.',
-        'max_tenure': 'Up to 15 Years (Includes moratorium breaks)',
-        'max_limit': 'Domestic: 20L | International: Up to ₹1.5 Cr',
+        'min_cibil': '650+ (Evaluated via Primary Co-borrower)',
+        'age_limit': '18 - 30 Years (Student profile bracket)',
+        'interest_rate': 'Starting at 11.99% ',
+        'max_tenure': 'Up to 4 Years (Includes moratorium breaks)',
+        'max_limit': 'As Per Norms',
         'processing_fee': 'Zero fee options available for premier domestic universities',
         'eligibility_notes': [
             'Student must have secured confirmed admission into a recognized course.',
@@ -85,13 +85,13 @@ LOAN_PRODUCTS = {
         'min_salary': '₹35,000 / month (Combined household income)',
         'min_cibil': '680+',
         'age_limit': '21 - 65 Years',
-        'interest_rate': 'Starting at 8.40% p.a. (Balanced Floating Base)',
+        'interest_rate': 'Starting at 7.65% p.a. (Balanced Floating Base)',
         'max_tenure': 'Up to 30 Scalable Years',
         'max_limit': 'Up to 80% to 90% of Market Property Value Valuation',
         'processing_fee': '₹5,000 to 0.5% capped technical vetting fee',
         'eligibility_notes': [
             'Applicants can include co-applicants (spouse/parents) to enhance eligibility limits.',
-            'Property under assessment must possess unencumbered legal titles.',
+            'Property under assessment must passess unencumbered legal titles.',
             'Construction project updates must fit structural safety approvals.',
             'Consistent income parameters with verifiable tax filing compliance.'
         ],
@@ -99,7 +99,8 @@ LOAN_PRODUCTS = {
             'Allotment Letter, Sale Agreement, or original Title Deeds history documentation',
             'No Objection Certificate (NOC) issued by builders or competent authorities',
             'Form 16 declarations alongside ITR files for the last 2 consecutive years',
-            'Approved construction plan blueprints matched with technical validation stamps'
+            'Approved construction plan blueprints matched with technical validation stamps and Form 16'
+            
         ]
     }
 }
