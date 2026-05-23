@@ -803,3 +803,127 @@ body {
     }
 
 }
+ /* =========================
+   SECTION SPACING
+========================= */
+
+.milestone-hero-section .row{
+    margin-bottom: 70px;
+}
+
+.premium-box{
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   NAVBAR ACTIVE + HOVER
+========================= */
+
+.navbar .nav-link{
+    color: #ffffff !important;
+    font-weight: 500;
+    margin: 0 10px;
+    position: relative;
+    transition: all 0.3s ease;
+    padding-bottom: 8px;
+}
+
+/* GOLD HOVER */
+.navbar .nav-link:hover{
+    color: #f7c948 !important;
+}
+
+/* ACTIVE MENU */
+.navbar .nav-link.active{
+    color: #f7c948 !important;
+    font-weight: 600;
+}
+
+/* ANIMATED UNDERLINE */
+.navbar .nav-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    background: #f7c948;
+    transition: width 0.35s ease;
+}
+
+/* SHOW UNDERLINE ON HOVER */
+.navbar .nav-link:hover::after{
+    width: 100%;
+}
+
+/* SHOW UNDERLINE ON ACTIVE */
+.navbar .nav-link.active::after{
+    width: 100%;
+}
+
+
+/* =========================
+   PREMIUM SECTION SPACING
+========================= */
+
+.milestone-top{
+    margin-bottom: 90px;
+}
+
+.bottom-feature-box{
+    margin-top: 40px;
+}
+
+.growth-banner{
+    margin-top: 40px;
+}
+
+.goal-item:last-child{
+    border-bottom: none;
+}
+
+.team-member:last-child{
+    padding-bottom: 0;
+}
+
+
+/* =========================
+   PREMIUM HOVER EFFECTS
+========================= */
+
+.goal-item{
+    transition: all 0.3s ease;
+    border-radius: 18px;
+    padding-left: 10px;
+}
+
+.goal-item:hover{
+    background: #f8fbff;
+    transform: translateX(8px);
+}
+
+.team-member{
+    transition: all 0.3s ease;
+    border-radius: 18px;
+    padding-left: 10px;
+}
+
+.team-member:hover{
+    background: #f8fbff;
+    transform: translateX(8px);
+}
+
+
+/* =========================
+   SMOOTH PAGE LOOK
+========================= */
+
+body{
+    background: #f7f9fc;
+    overflow-x: hidden;
+}
+
+.container{
+    max-width: 1320px;
+}
