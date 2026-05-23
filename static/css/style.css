@@ -156,6 +156,234 @@ body {
     transform: rotate(-5deg);
 }
 
+.milestone-hero-section{
+    background: #f7f9fc;
+    padding-bottom: 80px;
+}
+
+.section-badge{
+    color: #d4a017;
+    font-weight: 600;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.milestone-main-title{
+    font-size: 3.4rem;
+    font-weight: 700;
+    color: #081f3f;
+    line-height: 1.3;
+}
+
+.milestone-main-title span{
+    color: #d4a017;
+}
+
+.milestone-subtext{
+    max-width: 760px;
+    color: #5c6675;
+    font-size: 1.1rem;
+    line-height: 1.9;
+}
+
+.premium-box{
+    background: #fff;
+    border-radius: 28px;
+    padding: 35px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    transition: 0.4s ease;
+}
+
+.premium-box:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
+}
+
+.box-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.box-header i{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    background:#081f3f;
+    color:#f7c948;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+}
+
+.box-header h4{
+    font-weight:700;
+    color:#081f3f;
+    margin:0;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.stat-card{
+    background:#f8fbff;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    transition:.3s;
+}
+
+.stat-card:hover{
+    background:#081f3f;
+    transform:scale(1.03);
+}
+
+.stat-card:hover h3,
+.stat-card:hover p,
+.stat-card:hover i{
+    color:#fff;
+}
+
+.stat-card i{
+    font-size:28px;
+    color:#d4a017;
+    margin-bottom:15px;
+}
+
+.stat-card h3{
+    font-weight:700;
+    color:#081f3f;
+}
+
+.goal-item{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:20px 0;
+    border-bottom:1px solid #eee;
+}
+
+.goal-icon{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+}
+
+.blue{background:#3b82f6;}
+.gold{background:#f7b500;}
+.green{background:#22c55e;}
+.purple{background:#9333ea;}
+.pink{background:#ec4899;}
+.orange{background:#f97316;}
+
+.focus-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.focus-title{
+    color:#d4a017;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.focus-list li{
+    margin-bottom:15px;
+    color:#4c5665;
+}
+
+.growth-banner{
+    margin-top:30px;
+    background:linear-gradient(135deg,#081f3f,#0f2e5c);
+    border-radius:22px;
+    padding:25px;
+    text-align:center;
+    color:#fff;
+}
+
+.team-member{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid #eee;
+}
+
+.team-avatar{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    background:#081f3f;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.bottom-feature-box{
+    background:linear-gradient(135deg,#081f3f,#0b2f63);
+    border-radius:30px;
+    padding:40px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.feature-item{
+    display:flex;
+    gap:15px;
+    align-items:flex-start;
+    border-right:1px solid rgba(255,255,255,0.15);
+    padding-right:20px;
+}
+
+.feature-item i{
+    font-size:28px;
+    color:#f7c948;
+}
+
+.feature-item h5{
+    color:#fff;
+    font-weight:600;
+}
+
+.feature-item p{
+    color:rgba(255,255,255,0.7);
+    margin:0;
+}
+
+@media(max-width:991px){
+
+    .milestone-main-title{
+        font-size:2.5rem;
+    }
+
+    .stats-grid,
+    .focus-grid,
+    .bottom-feature-box{
+        grid-template-columns:1fr;
+    }
+
+    .feature-item{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,0.1);
+        padding-bottom:20px;
+    }
+
+}
+
 @keyframes quoteFade{
     from{
         opacity: 0;
