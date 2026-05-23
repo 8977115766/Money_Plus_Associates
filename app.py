@@ -33,7 +33,7 @@ LOAN_PRODUCTS = {
     'business': {
         'title': 'Business Loans',
         'icon': 'fa-chart-line',
-        'tagline': 'Fuel operational scale, equipment purchase, or short-term working capital demands.',
+        'tagline': 'Flexible funding solutions to support business growth, daily operations, and expansion plans.',
         'min_salary': '₹5 Lakhs Annual Turn-over',
         'min_cibil': '700+ (Commercial/Company Score)',
         'age_limit': '25 - 65 Years',
@@ -55,9 +55,9 @@ LOAN_PRODUCTS = {
         ]
     },
     'educational': {
-        'title': 'Global Educational Loans',
+        'title': 'Educational Loans',
         'icon': 'fa-user-graduate',
-        'tagline': 'Funding academic futures across premier domestic and global institutions.',
+        'tagline': 'Helping students achieve their academic dreams with easy and reliable education financing.',
         'min_salary': '₹25,000 / month (Co-borrower income)',
         'min_cibil': '650+ (Evaluated via Primary Co-borrower)',
         'age_limit': '18 - 30 Years (Student profile bracket)',
@@ -79,9 +79,9 @@ LOAN_PRODUCTS = {
         ]
     },
     'house': {
-        'title': 'Premium Asset House Loans',
+        'title': 'Home & Property Loans',
         'icon': 'fa-house-chimney',
-        'tagline': 'Seamless long-horizon asset financing options protecting your property investment.',
+        'tagline': 'Simple and secure financing options to help you invest in your dream home or property with confidence.',
         'min_salary': '₹35,000 / month (Combined household income)',
         'min_cibil': '680+',
         'age_limit': '21 - 65 Years',
