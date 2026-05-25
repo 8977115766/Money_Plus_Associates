@@ -954,3 +954,92 @@ body{
 .container{
     max-width: 1320px;
 }
+
+/* ==========================================================================
+   ADD-ON: FINTECH PREMIUM BORDERS & CONTAINER LAYOUTS (REF: IMAGE 1 & 2)
+   ========================================================================== */
+
+/* 1. Global Section Background Alignment */
+.milestone-hero-section {
+    background-color: #f4f7fa !important; /* Slightly cool off-white background tint from Image 1 & 2 */
+}
+
+/* 2. Top Intro Header Card (Reference: Image 2 Layout Frame) */
+.milestone-top {
+    background: #ffffff;
+    border: 1px solid #e2eaf4 !important; /* Extremely soft gray-blue border */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(8, 31, 63, 0.03) !important; /* Premium subtle elevation */
+}
+
+/* 3. Main Premium Box Containers (The Outer Wrappers for Scale & Impact, Sales Goals) */
+.premium-box {
+    background: #ffffff !important;
+    border: 1px solid #e2eaf4 !important; /* Subtle framing border from Image 1 */
+    border-radius: 24px !important;       /* Clean rounded wrapper */
+    padding: 35px !important;
+    box-shadow: 0 6px 24px rgba(8, 31, 63, 0.02) !important;
+}
+.premium-box:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 35px rgba(8, 31, 63, 0.07) !important;
+    border-color: #cbdbe5 !important;
+}
+
+/* 4. Left Column Grid: Stat Cards (Our Scale & Impact Style) */
+.stat-card {
+    background: #ffffff !important;        /* Pure white cards on off-white section background */
+    border: 1px solid #eef3f8 !important;  /* Soft inside layout border */
+    border-radius: 16px !important;        /* Smooth modern corners */
+    padding: 24px !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.015) !important;
+    transition: all 0.3s ease !important;
+}
+.stat-card:hover {
+    background: var(--primary-deep) !important; /* Keeps your interactive hover intact */
+    border-color: var(--primary-deep) !important;
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 0 10px 25px rgba(8, 31, 63, 0.15) !important;
+}
+
+/* 5. Right Column Stack: List Items (Our Sales Goals & Team Style) */
+.goal-item, .team-member {
+    background: #ffffff;
+    border: 1px solid #f0f4f8 !important;   /* Subtle inner card border */
+    border-bottom: 1px solid #f0f4f8 !important; /* Overriding your generic dark border-bottom */
+    border-radius: 14px !important;          /* Rounded inner item structure */
+    padding: 16px 20px !important;           /* Balanced internal spacing */
+    margin-bottom: 12px;                     /* Detached spacing gap per block */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01) !important;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+/* Hover Adjustments for List Stacks */
+.goal-item:hover, .team-member:hover {
+    background: #fdfeff !important;
+    border-color: #cbdbe5 !important;
+    transform: translateX(6px) !important;
+    box-shadow: 0 4px 15px rgba(8, 31, 63, 0.04) !important;
+}
+
+/* 6. Typography & Icon Resets for Clean Grid Alignment */
+.goal-item h5, .team-member h5 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--primary-deep);
+    margin: 0 0 2px 0;
+}
+
+.goal-item p, .team-member p {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.box-header i {
+    flex-shrink: 0; /* Ensures headers don't deform on small viewports */
+}
