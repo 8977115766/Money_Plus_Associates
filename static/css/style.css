@@ -1181,3 +1181,266 @@ body{
 .box-header i {
     flex-shrink: 0; /* Ensures headers don't deform on small viewports */
 }
+
+
+
+
+
+
+
+
+
+
+
+/* ======================================================
+   PREMIUM CONTACT PAGE STYLING
+====================================================== */
+
+/* HERO SECTION */
+.contact-hero{
+    background: linear-gradient(135deg,#f8fafc,#eef3f9);
+    padding: 90px 0 70px;
+    border-bottom: 1px solid rgba(8,31,63,0.08);
+}
+
+.contact-hero h1{
+    font-size: 3.2rem;
+    font-weight: 700;
+    color: #081f3f;
+    margin-bottom: 20px;
+    letter-spacing: -1px;
+}
+
+.contact-hero p{
+    max-width: 950px;
+    margin: auto;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: #5f6b7a;
+}
+
+/* MAIN CONTACT SECTION */
+.contact-main-section{
+    padding: 90px 0;
+    background: #f5f7fb;
+}
+
+/* LEFT + RIGHT CARDS */
+.contact-info-card,
+.contact-form-card{
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 45px;
+    border: 2px solid rgba(212,160,23,0.18);
+    box-shadow:
+        0 10px 35px rgba(8,31,63,0.05),
+        0 2px 10px rgba(0,0,0,0.02);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* GOLD TOP BAR */
+.contact-info-card::before,
+.contact-form-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background: linear-gradient(to right,#d4a017,#f7c948,#d4a017);
+}
+
+/* HOVER EFFECT */
+.contact-info-card:hover,
+.contact-form-card:hover{
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 45px rgba(8,31,63,0.10),
+        0 5px 15px rgba(0,0,0,0.03);
+}
+
+/* SMALL BADGE */
+.contact-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    background: rgba(212,160,23,0.10);
+    color:#c08b00;
+    padding:12px 22px;
+    border-radius:40px;
+    font-weight:600;
+    font-size:15px;
+    border:1px solid rgba(212,160,23,0.25);
+    margin-bottom:28px;
+}
+
+/* CARD TITLES */
+.contact-info-card h2,
+.contact-form-card h2{
+    font-size: 3rem;
+    font-weight: 700;
+    color: #081f3f;
+    margin-bottom: 18px;
+}
+
+.contact-small-text{
+    color:#5f6b7a;
+    line-height:1.9;
+    font-size:1.05rem;
+    margin-bottom:40px;
+}
+
+/* CONTACT ITEMS */
+.contact-info-item{
+    display:flex;
+    gap:22px;
+    margin-bottom:32px;
+    align-items:flex-start;
+    padding-bottom:25px;
+    border-bottom:1px solid rgba(8,31,63,0.06);
+}
+
+.contact-info-item:last-child{
+    border-bottom:none;
+}
+
+/* ICONS */
+.contact-icon{
+    width:68px;
+    height:68px;
+    border-radius:22px;
+    background: linear-gradient(135deg,#fff6da,#ffe9a3);
+    color:#b88700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    flex-shrink:0;
+    box-shadow: 0 6px 18px rgba(212,160,23,0.15);
+}
+
+/* ITEM TEXT */
+.contact-info-item h5{
+    color:#081f3f;
+    font-weight:700;
+    margin-bottom:8px;
+    font-size:1.15rem;
+}
+
+.contact-info-item p,
+.contact-info-item a{
+    color:#5f6b7a;
+    text-decoration:none;
+    font-size:1rem;
+    line-height:1.8;
+}
+
+.contact-info-item a:hover{
+    color:#d4a017;
+}
+
+/* SOCIAL AREA */
+.social-contact-box{
+    margin-top:45px;
+    padding-top:35px;
+    border-top:1px solid rgba(8,31,63,0.08);
+}
+
+.social-contact-box h5{
+    color:#081f3f;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+/* SOCIAL BUTTONS */
+.social-btn{
+    width:60px;
+    height:60px;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#ffffff;
+    font-size:24px;
+    transition:all 0.3s ease;
+    text-decoration:none;
+    box-shadow:0 8px 20px rgba(0,0,0,0.12);
+}
+
+.social-btn:hover{
+    transform:translateY(-6px) scale(1.05);
+}
+
+/* FORM AREA */
+.form-embed-wrapper{
+    overflow:hidden;
+    border-radius:24px;
+    border:1px solid rgba(8,31,63,0.08);
+    background:#ffffff;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.6);
+    padding:12px;
+}
+
+/* GOOGLE FORM */
+.form-embed-wrapper iframe{
+    width:100%;
+    border:none;
+    border-radius:18px;
+    background:#fff;
+    min-height:950px;
+}
+
+/* RESPONSIVE */
+@media(max-width:991px){
+
+    .contact-info-card,
+    .contact-form-card{
+        margin-bottom:35px;
+    }
+
+    .contact-hero h1{
+        font-size:2.4rem;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .contact-hero{
+        padding:70px 0 50px;
+    }
+
+    .contact-hero h1{
+        font-size:2rem;
+    }
+
+    .contact-info-card,
+    .contact-form-card{
+        padding:30px;
+        border-radius:24px;
+    }
+
+    .contact-info-card h2,
+    .contact-form-card h2{
+        font-size:2.2rem;
+    }
+
+    .contact-icon{
+        width:58px;
+        height:58px;
+        font-size:20px;
+    }
+
+    .social-btn{
+        width:54px;
+        height:54px;
+        font-size:20px;
+    }
+
+    .form-embed-wrapper iframe{
+        min-height:850px;
+    }
+
+}
