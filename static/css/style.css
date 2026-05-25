@@ -1385,11 +1385,12 @@ body{
 
 /* GOOGLE FORM */
 .form-embed-wrapper iframe{
-    width:100%;
-    border:none;
-    border-radius:18px;
-    background:#fff;
-    min-height:950px;
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    background: #fff;
+    height: 720px;   /* adjust this */
+    min-height: auto;
 }
 
 /* RESPONSIVE */
