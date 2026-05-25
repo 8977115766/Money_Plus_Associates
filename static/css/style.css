@@ -1044,51 +1044,77 @@ body{
     flex-shrink: 0; /* Ensures headers don't deform on small viewports */
 }
 /* ==========================================================================
-   FORCE FINTECH BORDERS & BACKGROUND CONTRAST
+   COMPLETE FIX: BORDERS, CONTRAST backgrounds, AND MARGIN SPACING FOR ALL 4 SECTIONS
    ========================================================================== */
 
-/* 1. Force the section background to a distinct cool off-white tint */
+/* 1. Force Section Base Background (Slightly deeper tone to make white boxes pop) */
 section.milestone-hero-section {
-    background-color: #f3f6fa !important;
+    background-color: #f1f4f9 !important;
+    padding: 60px 0 !important;
 }
 
-/* 2. Style the Outer Premium Boxes (Scale & Impact / Sales Goals Containers) */
-section.milestone-hero-section .premium-box {
+/* 2. Top Intro Header Card (About Our Company) */
+section.milestone-hero-section .milestone-top {
     background-color: #ffffff !important;
-    border: 1px solid #dbe2ec !important; /* Soft framing border */
+    border: 1px solid #dbe2ec !important;   /* Clear crisp frame border */
     border-radius: 24px !important;
-    box-shadow: 0 8px 30px rgba(8, 25, 44, 0.04) !important; /* Premium subtle depth */
+    padding: 40px !important;
+    margin-bottom: 40px !important;         /* Margin space below the intro section */
+    box-shadow: 0 4px 20px rgba(8, 25, 44, 0.03) !important;
+}
+
+/* 3. The 4 Main Box Containers (Scale, Sales Goals, Focus, Leadership) */
+section.milestone-hero-section .premium-box {
+    background-color: #ffffff !important;   /* Forces the outer card to be clean white */
+    border: 1px solid #dbe2ec !important;   /* Visible grey-blue border framework */
+    border-radius: 24px !important;
     padding: 35px !important;
+    margin-bottom: 30px !important;         /* Vertical margin gap between Row 1 and Row 2 */
+    box-shadow: 0 6px 24px rgba(8, 25, 44, 0.03) !important;
 }
 
-/* 3. Style the Inner Stat Cards (Scale & Impact Grid Cards) */
+/* 4. Left Column Grid: Inner Cards (Our Scale & Impact) */
 section.milestone-hero-section .stat-card {
-    background-color: #ffffff !important; /* Forces cards to be pure white */
-    border: 1px solid #e5edf5 !important;  /* Soft light blue-grey border line */
+    background-color: #f8fafc !important;   /* Soft background contrast inside the white box */
+    border: 1px solid #e2e8f0 !important;   /* Noticeable subtle border round the card */
     border-radius: 16px !important;
-    box-shadow: 0 4px 12px rgba(8, 25, 44, 0.02) !important;
+    padding: 24px !important;
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
 }
 
-/* 4. Transform the Sales Goals / Team Rows into Isolated White Containers */
-section.milestone-hero-section .goal-item,
-section.milestone-hero-section .team-member {
-    background-color: #ffffff !important;
-    border: 1px solid #e5edf5 !important; /* Subtle box-border instead of just a bottom line */
-    border-bottom: 1px solid #e5edf5 !important; /* Explicitly overrides your generic line */
-    border-radius: 16px !important; /* Matches rounded look from Image 1 */
-    padding: 16px 20px !important;
-    margin-bottom: 16px !important; /* Spacing gap between elements */
-    box-shadow: 0 4px 12px rgba(8, 25, 44, 0.02) !important;
-}
-
-/* 5. Keep your interactive hover mechanics but fix colors */
+/* Retain your hover color swap mechanism smoothly */
 section.milestone-hero-section .stat-card:hover {
     background-color: #081f3f !important;
     border-color: #081f3f !important;
 }
 
+/* 5. Right Column Stack: List Containers (Our Sales Goals & Team Style) */
+section.milestone-hero-section .goal-item,
+section.milestone-hero-section .team-member {
+    background-color: #f8fafc !important;   /* Soft background contrast for list items */
+    border: 1px solid #e2e8f0 !important;   /* Encapsulated surrounding border line */
+    border-bottom: 1px solid #e2e8f0 !important; /* Total removal of the raw underline look */
+    border-radius: 16px !important;
+    padding: 16px 20px !important;
+    margin-bottom: 16px !important;         /* Margin spacing gap between each stacked item */
+    box-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover Adjustments for List Stacks */
 section.milestone-hero-section .goal-item:hover,
 section.milestone-hero-section .team-member:hover {
-    background-color: #f8fbff !important;
-    border-color: #cbdbe5 !important;
+    background-color: #ffffff !important;
+    border-color: #b0c4de !important;
+    transform: translateX(6px) !important;
+    box-shadow: 0 4px 12px rgba(8, 25, 44, 0.05) !important;
+}
+
+/* 6. Fix for Core Focus Lists spacing issues */
+section.milestone-hero-section .focus-list {
+    padding-left: 20px !important;
+}
+section.milestone-hero-section .focus-list li {
+    margin-bottom: 12px !important;
 }
