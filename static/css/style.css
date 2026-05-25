@@ -1043,3 +1043,52 @@ body{
 .box-header i {
     flex-shrink: 0; /* Ensures headers don't deform on small viewports */
 }
+/* ==========================================================================
+   FORCE FINTECH BORDERS & BACKGROUND CONTRAST
+   ========================================================================== */
+
+/* 1. Force the section background to a distinct cool off-white tint */
+section.milestone-hero-section {
+    background-color: #f3f6fa !important;
+}
+
+/* 2. Style the Outer Premium Boxes (Scale & Impact / Sales Goals Containers) */
+section.milestone-hero-section .premium-box {
+    background-color: #ffffff !important;
+    border: 1px solid #dbe2ec !important; /* Soft framing border */
+    border-radius: 24px !important;
+    box-shadow: 0 8px 30px rgba(8, 25, 44, 0.04) !important; /* Premium subtle depth */
+    padding: 35px !important;
+}
+
+/* 3. Style the Inner Stat Cards (Scale & Impact Grid Cards) */
+section.milestone-hero-section .stat-card {
+    background-color: #ffffff !important; /* Forces cards to be pure white */
+    border: 1px solid #e5edf5 !important;  /* Soft light blue-grey border line */
+    border-radius: 16px !important;
+    box-shadow: 0 4px 12px rgba(8, 25, 44, 0.02) !important;
+}
+
+/* 4. Transform the Sales Goals / Team Rows into Isolated White Containers */
+section.milestone-hero-section .goal-item,
+section.milestone-hero-section .team-member {
+    background-color: #ffffff !important;
+    border: 1px solid #e5edf5 !important; /* Subtle box-border instead of just a bottom line */
+    border-bottom: 1px solid #e5edf5 !important; /* Explicitly overrides your generic line */
+    border-radius: 16px !important; /* Matches rounded look from Image 1 */
+    padding: 16px 20px !important;
+    margin-bottom: 16px !important; /* Spacing gap between elements */
+    box-shadow: 0 4px 12px rgba(8, 25, 44, 0.02) !important;
+}
+
+/* 5. Keep your interactive hover mechanics but fix colors */
+section.milestone-hero-section .stat-card:hover {
+    background-color: #081f3f !important;
+    border-color: #081f3f !important;
+}
+
+section.milestone-hero-section .goal-item:hover,
+section.milestone-hero-section .team-member:hover {
+    background-color: #f8fbff !important;
+    border-color: #cbdbe5 !important;
+}
