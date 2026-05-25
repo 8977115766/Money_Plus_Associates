@@ -214,80 +214,56 @@ body {
     color:#041b45;
 }
 /* ==========================================
-   PREMIUM NAVY BLUE BORDER CONTAINERS
+   PREMIUM FULL BORDER CONTAINERS
 ========================================== */
 
 .premium-box{
     position: relative;
-    background: #ffffff !important;
+    background: #ffffff;
 
-    /* PREMIUM NAVY BORDER */
-    border: 2px solid #081f3f !important;
+    /* FULL NAVY BORDER */
+    border: 3px solid #081f3f !important;
 
-    border-radius: 28px !important;
-    padding: 38px !important;
+    border-radius: 28px;
+    padding: 38px;
 
-    /* SOFT PROFESSIONAL SHADOW */
+    /* PREMIUM DEPTH */
     box-shadow:
-        0 10px 35px rgba(8, 31, 63, 0.08),
-        0 2px 10px rgba(0,0,0,0.03) !important;
+        0 10px 30px rgba(8,31,63,0.08),
+        0 2px 10px rgba(0,0,0,0.03);
 
     transition: all 0.35s ease;
+
     overflow: hidden;
 }
 
-/* GOLD TOP ACCENT LINE */
-.premium-box::before{
+/* GOLD INNER BORDER EFFECT */
+.premium-box::after{
     content: "";
     position: absolute;
-    top: 0;
-    left: 35px;
-    width: 90px;
-    height: 4px;
-    background: linear-gradient(to right,#f7c948,#d4a017);
-    border-radius: 20px;
+
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    border: 1px solid rgba(247,201,72,0.22);
+
+    border-radius: 22px;
+
+    pointer-events: none;
 }
 
-/* PREMIUM HOVER EFFECT */
+/* PREMIUM HOVER */
 .premium-box:hover{
-    transform: translateY(-8px) !important;
+
+    transform: translateY(-8px);
 
     border-color: #0b2f63 !important;
 
     box-shadow:
-        0 18px 45px rgba(8, 31, 63, 0.15),
-        0 8px 20px rgba(0,0,0,0.05) !important;
-}
-
-.premium-box:hover{
-    transform: translateY(-8px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.10);
-}
-.row.g-5{
-    align-items: stretch;
-}
-.premium-box::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 28px;
-    padding: 1px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(247,201,72,0.15),
-            rgba(8,31,63,0.12)
-        );
-
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-
-    -webkit-mask-composite: xor;
-            mask-composite: exclude;
-
-    pointer-events: none;
+        0 18px 45px rgba(8,31,63,0.16),
+        0 8px 18px rgba(0,0,0,0.06);
 }
 .box-header{
     display:flex;
