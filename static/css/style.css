@@ -831,18 +831,6 @@ body {
     }
 
 }
- /* =========================
-   SECTION SPACING
-========================= */
-
-.milestone-hero-section .row{
-    margin-bottom: 70px;
-}
-
-.premium-box{
-    margin-bottom: 10px;
-}
-
 
 /* =========================
    NAVBAR ACTIVE + HOVER
@@ -954,4 +942,30 @@ body{
 
 .container{
     max-width: 1320px;
+}
+/* ==========================================
+   FINAL CONTAINER SPACING FIX
+========================================== */
+
+.milestone-hero-section .container{
+    max-width: 1380px;
+}
+
+/* SPACE BETWEEN LEFT & RIGHT CONTAINERS */
+.milestone-hero-section .row{
+    --bs-gutter-x: 45px;
+    --bs-gutter-y: 45px;
+}
+
+/* OUTER CONTAINER MARGINS */
+.premium-box{
+    padding: 45px;
+    border-radius: 34px;
+    margin: 12px 0;
+}
+
+/* EXTRA BREATHING SPACE */
+.col-lg-6{
+    padding-left: 18px;
+    padding-right: 18px;
 }
