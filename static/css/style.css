@@ -517,7 +517,19 @@ body {
     }
 
 }
+.service-quote{
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #081f3f;
+    font-style: italic;
+    line-height: 1.6;
+}
 
+.service-quote span{
+    color: #d4a017;
+}
 
 /* HERO HERO BANNER */
 .hero-banner {
