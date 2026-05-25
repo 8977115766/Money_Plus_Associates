@@ -1344,10 +1344,9 @@ body{
 /* SOCIAL AREA */
 .social-contact-box{
     margin-top:45px;
-    padding-top:35px;
-    border-top:1px solid rgba(8,31,63,0.08);
+    padding-top:15px;
+    border-top:none;
 }
-
 .social-contact-box h5{
     color:#081f3f;
     font-weight:700;
