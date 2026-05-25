@@ -941,7 +941,7 @@ body{
 }
 
 .container{
-    max-width: 1320px;
+    max-width: 1200px;
 }
 /* ==========================================
    FINAL CONTAINER SPACING FIX
@@ -952,10 +952,6 @@ body{
 }
 
 /* SPACE BETWEEN LEFT & RIGHT CONTAINERS */
-.milestone-hero-section .row{
-    --bs-gutter-x: 45px;
-    --bs-gutter-y: 45px;
-}
 
 /* OUTER CONTAINER MARGINS */
 .premium-box{
@@ -964,8 +960,20 @@ body{
     margin: 12px 0;
 }
 
-/* EXTRA BREATHING SPACE */
-.col-lg-6{
-    padding-left: 18px;
-    padding-right: 18px;
+/* PERFECT PREMIUM CARD SPACING */
+
+.milestone-hero-section .row{
+    --bs-gutter-x: 55px;
+    --bs-gutter-y: 55px;
+}
+
+.premium-box{
+    border-radius: 36px;
+    padding: 42px;
+}
+
+/* ADD SIDE BREATHING SPACE */
+.milestone-hero-section{
+    padding-left: 20px;
+    padding-right: 20px;
 }
