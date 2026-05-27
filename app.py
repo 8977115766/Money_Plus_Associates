@@ -130,7 +130,17 @@ def history():
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('privacy.html')
 
+@app.route('/terms-and-conditions')
+def terms_conditions():
+    return render_template('terms.html')
+
+@app.route('/disclaimer')
+def disclaimer():
+    return render_template('disclaimer.html')
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
