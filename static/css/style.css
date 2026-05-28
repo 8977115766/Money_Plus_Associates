@@ -1766,22 +1766,33 @@ body{
 
 }
 
+/* FIX FOOTER CORPORATE PROFILE */
 
-.footer-links {
-    display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
+.footer-links{
+    display:block;
+    width:100%;
 }
 
-.footer-links a {
-    color: #d4af37;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
+.footer-links ul{
+    padding-left:0;
+    margin:0;
 }
 
-.footer-links a:hover {
-    color: #ffffff;
+.footer-links ul li{
+    display:block;
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,0.75);
+    text-decoration:none;
+    transition:0.3s ease;
+    font-weight:500;
+}
+
+.footer-links a:hover{
+    color:#f7c948;
+    padding-left:4px;
 }
 
 .accordion-button:not(.collapsed) {
