@@ -333,11 +333,19 @@ body {
     transform: rotate(-5deg);
 }
 
-.milestone-hero-section{
-    background: #f7f9fc;
-    padding-bottom: 80px;
-}
+/* GLASS EFFECT */
 
+.premium-box,
+.bottom-feature-box,
+.achievement-card{
+
+    background: rgba(255,255,255,0.08) !important;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    border: 1px solid rgba(255,255,255,0.08);
+}
 .section-badge{
     color: #d4a017;
     font-weight: 600;
